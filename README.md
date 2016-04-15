@@ -96,13 +96,26 @@ Espero que esse mock mude com o tempo, mas poderiamos usar algo no seguinte form
 var jsonMock = {
     pictogramas : [
         {
-            "id": 1,
+            "_id": ..., //definido pelo MongoDB
             "imagem": "images/pic001.png",
             "dica": "Quem descobriu brasil?",
             "resposta": "Kent Beck",
+            "letras" : [
+                "k",
+                "e",
+                "n",
+                "t",
+                "b",
+                "e",
+                "c",
+                "k",
+                "j",
+                "i",
+                "n",
+                "c",
+                "a" //total de 12 letras?
+            ]
             "tempo": 30,
-            "memorizacao": 1, //ainda nao tenho certeza, mas ja que vamos usar algo no naipe repeticao espacada, vai ser
-            //um atributo necessario, posso explicar depois com mais detalhes o que eu pensei.
             "topicos" : [
                 {"nome": "uml"},
                 {"nome": "figuras excentricas"},
