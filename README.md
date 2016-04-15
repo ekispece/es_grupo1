@@ -121,5 +121,6 @@ var jsonMock = {
 ## Equipe
 
 Equipe top do Grupo#1
-*Sergio H B Marques
+
+* Sergio H B Marques
 `TODO: incluir seu nome`
