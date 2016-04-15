@@ -80,7 +80,7 @@ Quit the server with CONTROL-C.
 ```
 
 Ao acessar a pagina [http://127.0.0.1:8000/](http://127.0.0.1:8000/) voce deveria ver uma mensagem de HelloWorld.
-Ao acessar a pagina [http://127.0.0.1:8000/mongodb](http://127.0.0.1:8000/mongodb] voce deve ver uma mensagem da sua
+Ao acessar a pagina [http://127.0.0.1:8000/mongodb/](http://127.0.0.1:8000/mongodb/) voce deve ver uma mensagem da sua
 versao do PyMongo, a versao do seu mongoDB e os dizeres de que a conexao foi bem sucedida. Se isto tudo acontecer
 otimo! tudo esta funcionando. `woo-hoo`
 
