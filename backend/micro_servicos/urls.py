@@ -16,10 +16,10 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 
-from micro_services import hello_world_view, mongodb_version_view
+from . import hello_world_view, mongodb_version_view
 
 urlpatterns = [
     # url(r'^admin/', admin.site.urls),
     url(r'^$', hello_world_view.index, name='index'),
-    url(r'^mongodb/', mongodb_version_view.print_version, name='mongodb')
+    url(r'^mongodb', mongodb_version_view.print_version, name='mongodb')
 ]

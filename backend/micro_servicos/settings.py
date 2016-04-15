@@ -50,7 +50,7 @@ MIDDLEWARE_CLASSES = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'micro_services.urls'
+ROOT_URLCONF = 'micro_servicos.urls'
 
 TEMPLATES = [
     {
@@ -69,7 +69,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'micro_services.wsgi.application'
+WSGI_APPLICATION = 'micro_servicos.wsgi.application'
 
 
 # Database
