@@ -68,7 +68,9 @@ Para rodar o backend, uma vez instalada todas as dependencias, no diretorio prin
 diretorio backend, ao entrar neste diretorio, voce pode iniciar a aplicacao rodando o seguinte comando:
 `python manage.py runserver`
 Nao feche esta janela do terminal, o servidor esta rodando! provavelmente voce deve ter recebido uma mensagem assim:
-``` Performing system checks...
+
+```
+Performing system checks...
 
 System check identified no issues (0 silenced).
 April 15, 2016 - 01:18:54
