@@ -29,11 +29,11 @@ Sao necessarios para o funcionamento da aplicacao as seguintes ferramentas e est
 
 * MongoDB
 
-⋅⋅⋅ Um modo facil de instalar o MongoDB, utilizar os seguintes comando:
+⋅⋅⋅ Um modo facil de instalar o MongoDB, utilizar os seguintes comandos:
 ```
 cd ~
 wget https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-ubuntu1404-3.2.5.tgz
-tar -xvf mongodb-linux-x86_64-ubuntu1404-3.2.5.tgz mongoDB
+tar -xf mongodb-linux-x86_64-ubuntu1404-3.2.5.tgz -C mongoDB
 sudo mkdir /data/db
 cd ~/mongoDB/bin
 sudo ./mongod
