@@ -13,13 +13,10 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
-from django.conf.urls import url
+from django.conf.urls import include, url
 from django.contrib import admin
-
-from . import hello_world_view, mongodb_version_view
 
 urlpatterns = [
     # url(r'^admin/', admin.site.urls),
-    url(r'^$', hello_world_view.index, name='index'),
-    url(r'^mongodb', mongodb_version_view.print_version, name='mongodb')
+    url(r'^pictograms', include('pictograma.urls')),
 ]

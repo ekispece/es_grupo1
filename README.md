@@ -94,32 +94,31 @@ Espero que esse mock mude com o tempo, mas poderiamos usar algo no seguinte form
 
 ```javascript
 var jsonMock = {
-    pictogramas : [
+    'pictogramas': [
         {
-            "_id": ..., //definido pelo MongoDB
-            "imagem": "images/pic001.png",
-            "dica": "Quem descobriu brasil?",
-            "resposta": "Kent Beck",
-            "letras" : [
-                "k",
-                "e",
-                "n",
-                "t",
-                "b",
-                "e",
-                "c",
-                "k",
-                "j",
-                "i",
-                "n",
-                "c",
-                "a" //total de 12 letras?
-            ]
-            "tempo": 30,
-            "topicos" : [
-                {"nome": "uml"},
-                {"nome": "figuras excentricas"},
-                {"nome": "Impeachment Dilma Roussef"}
+            'imagem': 'images/pic001.png',
+            'dica': 'Um dos 17 do Manifesto Agil',
+            'resposta': 'KENT BECK',
+            'letras': [
+                'K',
+                'E',
+                'N',
+                'T',
+                'B',
+                'E',
+                'C',
+                'K',
+                'J',
+                'I',
+                'N',
+                'C',
+                'A'
+            ],
+            'tempo': 30,
+            'topicos': [
+                {'nome': 'projeto'},
+                {'nome': 'processo'},
+                {'nome': 'teste'}
             ]
         },
         {...} //mais pictogramas
@@ -136,4 +135,5 @@ var jsonMock = {
 Equipe top do Grupo#1
 
 * Sergio H B Marques
+* Lucas C Souza
 `TODO: incluir seu nome`
