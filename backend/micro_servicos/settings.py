@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/1.9/ref/settings/
 """
 
 import os
+from mongoengine import connect
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -81,6 +82,16 @@ DATABASES = {
         'NAME': '',
     }
 }  # we will be using pymongo
+
+AUTHENTICATION_BACKENDS = (
+    'mongoengine.django.auth.MongoEngineBackend'
+)
+
+SESSION_ENGINE = 'mongoengine.django.sessions'
+
+MONGO_DATABASE_NAME = 'es_grupo1'
+
+connect(MONGO_DATABASE_NAME)
 
 
 # Password validation
