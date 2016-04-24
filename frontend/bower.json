@@ -1,0 +1,14 @@
+{
+  "name": "pictosoft",
+  "description": "",
+  "main": "",
+  "authors": [
+    "Ivan Fernandes <ivandalcantara@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/ekispece/es_grupo1",
+  "private": true,
+  "dependencies": {
+    "angular": "1.5.5"
+  }
+}

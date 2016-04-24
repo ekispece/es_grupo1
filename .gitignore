@@ -63,3 +63,7 @@ target/
 
 #PyCharm folders
 .idea
+
+#Frontend dependency folders
+node_modules
+bower_components
