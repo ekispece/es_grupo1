@@ -1,0 +1,70 @@
+@import "var.less";
+
+// .main-game{
+//     border-radius: 5px;
+// }
+
+.pictogram{
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    background-color: @bg-pictogram;
+
+
+    .plus-div{
+        height: 287px; /*Marretando a altura por hora. Height 100% não funciona sabe-se la por que*/
+        display: table;
+        .plus-sign{
+            vertical-align: middle;
+            display: table-cell;
+        }
+    }
+}
+
+.answer{
+    background: @bg-answer;
+    height: 38px;
+
+    .answer-box{
+        display: inline-block;
+        width: 30px;
+        border: 1px solid @bc-answer-box;
+        border-radius: 4px;
+        margin: 4px 2px;
+        font-size: 20px;
+        cursor: pointer;
+    }
+    .answer-box.empty{
+        background-color: @bg-answer-box-empty;
+        height: 30px;
+        margin-bottom: -8px
+    }
+}
+
+.letter-set{
+    background: @bg-letter-set;
+    .letter-span{
+        margin: 4px;
+        background-color: @bg-letter;
+        font-size: 30px;
+        padding: 5px;
+        width: 52px;
+        display: inline-block;
+        border-radius: 5px;
+        box-shadow: 1px 1px @shadow-letter;
+        cursor: pointer;
+    }
+
+    .letter-span-hint{
+        .letter-span;
+        background-color: @bg-letter-hint;
+    }
+}
+
+.plus-div{
+    text-align: center;
+}
+.img-pictogram{
+    width: 100%;
+}

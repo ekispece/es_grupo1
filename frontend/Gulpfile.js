@@ -1,10 +1,31 @@
-var gulp = require('gulp');
-var less = require('gulp-less');
+// var gulp = require('gulp');
+// var less = require('gulp-less');
+// var watch = require('gulp-watch')
+//
+// gulp.task('build-less', function () {
+//     return gulp.src('less/main.less')
+//         .pipe(less())
+//         .pipe(gulp.dest('css'))
+// });
+//
+// // gulp.task('watch', function () {
+// //     return gulp.src('less/main.less')
+// //         .pipe(watch('less/*.less'))
+// //         .pipe(less())
+// //         .pipe(gulp.dest('css'))
+// // });
+//
+// gulp.task('default', ['build-less']);
+var elixir = require('laravel-elixir');
 
-gulp.task('build-less', function () {
-    return gulp.src('less/main.less')
-        .pipe(less())
-        .pipe(gulp.dest('css'))
-});
+elixir.config.assetsPath = ".";
+elixir.config.publicPath = ".";
 
-gulp.task('default', ['build-less']);
+elixir(function(mix){
+    mix.less([
+        'bootstrap/bootstrap.less',
+        'font-awesome/font-awesome.less',
+        'var.less',
+        'pictogram.less'
+    ]);
+})
