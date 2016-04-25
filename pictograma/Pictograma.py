@@ -79,16 +79,38 @@ def remove_pictograma(_id):
     return mongo.db.pictogramas.remove({"_id": ObjectId(_id)})
 
 
+def checar_json_pictograma_valido(picto_json):
+    if 'imagem' not in picto_json:
+        raise JSONInvalido("campo imagem nao foi definido no json")
+    if 'dica' not in picto_json:
+        raise JSONInvalido("campo dica nao foi definido no json")
+    if 'resposta' not in picto_json:
+        raise JSONInvalido("campo resposta nao foi definido no json")
+    if 'topicos' not in picto_json:
+        raise JSONInvalido("campo topicos nao foi definido no json")
+    if len(picto_json['topicos']) < 1:
+        raise JSONInvalido("Campo topicos foi definido, mas nao ha nenhum topico")
+        
+    return True
+
 def inserir_pictograma(pict_json):
     id_insertions = []
     if type(pict_json) == dict:
-        id_insertions.append(str(mongo.db.pictogramas.insert_one(pict_json).inserted_id))
+        if checar_json_pictograma_valido(pict_json):
+            id_insertions.append(str(mongo.db.pictogramas.insert_one(pict_json).inserted_id))
 
     elif type(pict_json) == list:
         for obj in pict_json:
-            id_insertions.append(str(mongo.db.pictogramas.insert_one(obj).inserted_id))
+            if checar_json_pictograma_valido(obj):
+                id_insertions.append(str(mongo.db.pictogramas.insert_one(obj).inserted_id))
 
     else:
-        raise TypeError("The json informed is not valid!")
+        raise JSONInvalido("The json informed is not valid!")
 
     return id_insertions
+
+class JSONInvalido(Exception):
+    def __init__(self, value):
+        self.value = value
+    def __str__(self):
+        return repr(self.value)
