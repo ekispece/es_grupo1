@@ -1,26 +1,37 @@
-import json
+import requests
 import unittest
+from flask.app import Flask
 
-from flask.testsuite import FlaskTestCase
+from flask.ext.testing import TestCase
 
-from app import app
-from backend.pictograma import Pictograma
-
-json_mock = '{"_id": "mock", "imagem": "images/img001.png", "dica": "Comunista", "resposta": "Kent Beck", "topicos":' \
-            ' ["projeto", "processo", "teste"]}'
+json_mock = '{"imagem": "images/img001.png", "dica": "Comunista", "resposta": ' \
+            '"Kent Beck", "topicos": ["projeto", "processo", "teste"]}'
 
 
-class TestePictograma(FlaskTestCase):
-    def setUp(self):
+class TestePictograma(TestCase):
+    def create_app(self):
+        app = Flask("pictosoft")
         app.config['TESTING'] = True
-        self.app = app.test_client()
+        return app
 
-    def test_deve_criar_objeto_de_json(self):
-        picto = Pictograma.criar_objeto_de_json(json.loads(json_mock))
-
-        assert picto is not None
-        assert picto.dica == "Comunista"
-        assert picto.resposta == "Kent Beck"
+    # Testa pela criacao, busca e remocao de um pictograma
+    # Este eh um teste de integracao! para funcionar, a aplicacao e o mongodb devem estar ligados
+    def test_mongodb_mock(self):
+        r = requests.post("http://0.0.0.0:9999/pictograma", data=json_mock)
+        response_json = r.json()
+        assert 'inseridos' in response_json
+        assert len(response_json['inseridos']) == 1
+        obj_id = response_json['inseridos'][0]
+        r = requests.get("http://0.0.0.0:9999/pictograma/" + str(obj_id))
+        response_json = r.json()
+        assert type(response_json) is dict
+        assert 'imagem' in response_json
+        assert 'dica' in response_json
+        assert 'resposta' in response_json
+        assert 'topicos' in response_json
+        assert len(response_json['topicos']) == 3
+        r = requests.delete("http://0.0.0.0:9999/pictograma/" + str(obj_id))
+        assert r.status_code == 200
 
 
 if __name__ == '__main__':

@@ -1,6 +1,7 @@
 import json
-import re
-from random import randint
+import random
+import string
+from random import randint, shuffle
 
 from bson.objectid import ObjectId
 
@@ -30,14 +31,25 @@ class Pictograma:
         self.topicos = topicos
         self._id = _id
 
+        self.letras = list(resposta.lower().replace(" ", ""))
+
+        assert len(self.letras) <= 12
+
+        while len(self.letras) < 12:
+            self.letras.append(random.choice(string.lowercase))
+
+        assert len(self.letras) == 12
+        shuffle(self.letras)
+
         self.pict_json = {
             '_id': self._id,
             'imagem': self.imagem,
             'dica': self.dica,
             'resposta': self.resposta,
-            'topicos': self.topicos
-
+            'topicos': self.topicos,
+            'letras': self.letras
         }
+
 
 
     def __str__(self):
@@ -59,22 +71,24 @@ def pictograma_aleatorio():
     return criar_objeto_de_json(mongo.db.pictogramas.find().skip(skip).next())
 
 
-def pictograma_resposta(resposta):
-    return criar_objeto_de_json(
-        mongo.db.pictogramas.find_one({"resposta": re.compile('^' + re.escape(resposta) + '$', re.IGNORECASE)}))
-
-
 def pictograma_id(_id):
     return criar_objeto_de_json(mongo.db.pictogramas.find_one({"_id": ObjectId(_id)}))
 
 
+def remove_pictograma(_id):
+    return mongo.db.pictogramas.remove({"_id": ObjectId(_id)})
+
+
 def inserir_pictograma(pict_json):
+    id_insertions = []
     if type(pict_json) == dict:
-        mongo.db.pictogramas.insert_one(pict_json)
+        id_insertions.append(str(mongo.db.pictogramas.insert_one(pict_json).inserted_id))
 
     elif type(pict_json) == list:
         for obj in pict_json:
-            mongo.db.pictogramas.insert_one(obj)
+            id_insertions.append(str(mongo.db.pictogramas.insert_one(obj).inserted_id))
 
     else:
         raise TypeError("The json informed is not valid!")
+
+    return id_insertions
