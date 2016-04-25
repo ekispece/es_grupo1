@@ -1,35 +1,27 @@
-from django.test import TestCase, Client
-from django.conf import settings
-from json import loads
+import json
+import unittest
+
+from flask.testsuite import FlaskTestCase
+
+from app import app
+from backend.pictograma import Pictograma
+
+json_mock = '{"_id": "mock", "imagem": "images/img001.png", "dica": "Comunista", "resposta": "Kent Beck", "topicos":' \
+            ' ["projeto", "processo", "teste"]}'
 
 
-class TestUrls(TestCase):
-    def test_object_was_set_correctly(self):
-        res = loads(Client().get('/pictograms').content)
+class TestePictograma(FlaskTestCase):
+    def setUp(self):
+        app.config['TESTING'] = True
+        self.app = app.test_client()
 
-        self.assertTrue('pictogramas' in res)
+    def test_deve_criar_objeto_de_json(self):
+        picto = Pictograma.criar_objeto_de_json(json.loads(json_mock))
 
-        res = res['pictogramas'][0]
+        assert picto is not None
+        assert picto.dica == "Comunista"
+        assert picto.resposta == "Kent Beck"
 
-        self.assertTrue('imagem' in res)
-        self.assertTrue('dica' in res)
-        self.assertTrue('resposta' in res)
-        self.assertTrue('letras' in res)
-        self.assertTrue('tempo' in res)
-        self.assertTrue('topicos' in res)
-
-        for topics in res['topicos']:
-            self.assertTrue('nome' in topics)
-
-    def test_letras_field_has_all_letters(self):
-        res = loads(Client().get('/pictograms').content)['pictogramas'][0]
-
-        word = res['resposta'].replace(' ', '')
-
-        for letter in res['letras']:
-            word = word.replace(letter, '', 1)
-
-        self.assertEqual(len(word), 0)
 
 if __name__ == '__main__':
-    settings.configure()
+    unittest.main()
