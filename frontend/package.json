@@ -6,6 +6,8 @@
   "dependencies": {
     "bower": "^1.7.9",
     "gulp": "^3.9.1",
-    "gulp-less": "^3.0.5"
+    "gulp-less": "^3.0.5",
+    "gulp-watch": "^4.3.5",
+    "laravel-elixir": "^6.0.0-1"
   }
 }

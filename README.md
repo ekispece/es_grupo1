@@ -19,6 +19,7 @@ Sao necessarios para o funcionamento da aplicacao as seguintes ferramentas e est
 * [MongoDB 3+](http://www.mongodb.org)
 * [Django 1.8+](https://www.djangoproject.com/)
 * PyMongo
+* [Node.js](https://nodejs.org/)
 
 ## Instalando todas as dependencias
 
@@ -56,7 +57,10 @@ Apos instalado o pip, para instalar o Django, use o comando `sudo -H pip install
 
 * PyMongo
 Este e o motivo de eu ter recomendado instalar o pip no passo anterior, o PyMongo o jeito mais facil de ser instalado e
-pelo pip, com o comando `sudo -H pip install pymongo`
+pelo pip, com o comando `sudo -H pip install pymongo
+
+* Node.js
+Node esta disponivel nos gerenciadores de pacotes da maioria das distribuições. O site do Node.js mostra os comandos necessários para a instalação para varias distribuições https://nodejs.org/en/download/package-manager/. Encontre sua distribuição e digite os comandos no terminal. `
 
 
 ###### Windows
@@ -83,6 +87,8 @@ Ao acessar a pagina [http://127.0.0.1:8000/](http://127.0.0.1:8000/) voce deveri
 Ao acessar a pagina [http://127.0.0.1:8000/mongodb/](http://127.0.0.1:8000/mongodb/) voce deve ver uma mensagem da sua
 versao do PyMongo, a versao do seu mongoDB e os dizeres de que a conexao foi bem sucedida. Se isto tudo acontecer
 otimo! tudo esta funcionando. `woo-hoo`
+
+Para rodar frontend primeiro é necessário instalar as dependecias do projetos. As dependencias devem ser baixadas apenas uma vez para o frontend funcionar sempre. Nossa dependencias são gerenciadas com o pacote `npm` instalado com o Node.js. Basta navegar para a raiz do diretório do frontend e digitar o comando `npm install`. O npm irá instalar as ferramentas bower e gulp. Bower é usado para gerencias as bibliotecas javascript e gulp para compilar os arquivos less para css. Use o comando `bower install` para instalar as bibliotecas javascript e o comando `gulp`para compilar os arquivos less. Como o frontend esta separado do backend, basta abrir os arquivos html diretamente, não é necessário um servidor.
 
 ## Entidades da aplicacao
 
