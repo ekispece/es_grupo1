@@ -6,6 +6,12 @@ from pictograma.Pictograma import pictograma_aleatorio, pictograma_id, remove_pi
 from app import app
 
 
+#  Rotas do website
+@app.route("/")
+def root():
+    return app.send_static_file("index.html")
+
+
 #  Define as rotas para o endpoint pictograma
 @app.route("/pictograma", methods=["GET", "POST"])
 def pictograma():
@@ -29,4 +35,4 @@ def pictograma_por_id(_id):
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=9999, debug=True)
+    app.run(host='0.0.0.0', port=8080)
