@@ -4,16 +4,19 @@ from flask.wrappers import Response
 
 from pictograma.Pictograma import pictograma_aleatorio, pictograma_id, remove_pictograma, inserir_pictograma
 from app import app
+from crossdomain import crossdomain
 
 
 #  Rotas do website
 @app.route("/")
+@crossdomain(origin='*')
 def root():
     return app.send_static_file("index.html")
 
 
 #  Define as rotas para o endpoint pictograma
 @app.route("/pictograma", methods=["GET", "POST"])
+@crossdomain(origin='*')
 def pictograma():
     if request.method == "POST":
         ids = inserir_pictograma(request.get_json(force=True))
@@ -25,6 +28,7 @@ def pictograma():
 
 
 @app.route("/pictograma/<string:_id>", methods=["GET", "DELETE"])
+@crossdomain(origin='*')
 def pictograma_por_id(_id):
     if request.method == "GET":
         picto = pictograma_id(_id)
