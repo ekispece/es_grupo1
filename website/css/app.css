@@ -22260,5 +22260,9 @@ button.close {
 .img-pictogram {
   width: 100%;
 }
+#main-title {
+  font-size: 132px;
+  text-align: center;
+}
 
 /*# sourceMappingURL=app.css.map */

@@ -1,0 +1,30 @@
+<div class="row">
+    <div class="col-md-12">
+        <h1>PicToSoft</h1>
+    </div>
+</div>
+<div class="col-md-8 col-md-offset-2 main-game">
+    <div class="row pictogram">
+        <div class="col-xs-5">
+            <img src="http://lorempixel.com/240/240/cats" alt="Gato" class="img-rounded img-pictogram"/>
+        </div>
+        <div class="col-xs-2 plus-div">
+            <i class="fa fa-plus fa-2x plus-sign" aria-hidden="true"></i>
+        </div>
+        <div class="col-xs-5">
+            <img src="http://lorempixel.com/240/240/city" alt="Cidade" class="img-rounded img-pictogram"/>
+        </div>
+    </div>
+    <div class="row answer">
+        <div class="col-xs-12 text-center">
+            <span class="answer-box" ng-click="answerBoxClick($index)" ng-class="(letter == '')?'empty': ''" ng-repeat="letter in answerLetters track by $index">{{letter == ''?' ': letter}}</span>
+        </div>
+    </div>
+    <div class="row letter-set">
+        <div class="col-xs-12 text-center">
+            <span class="letter-span" ng-repeat-start="letter in mock.pictogramas[0].letras track by $index" ng-click="letterClick($index)">{{letter}}</span>
+            <br ng-repeat-end ng-if="$index == 6">
+            <span class="letter-span-hint" ng-click="hint()">?</span>
+        </div>
+    </div>
+</div>

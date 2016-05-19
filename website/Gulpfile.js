@@ -26,6 +26,6 @@ elixir(function(mix){
         'bootstrap/bootstrap.less',
         'font-awesome/font-awesome.less',
         'var.less',
-        'pictogram.less'
+        'pictogram.less'        
     ]);
 })
