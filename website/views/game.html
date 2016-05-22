@@ -24,7 +24,25 @@
         <div class="col-xs-12 text-center">
             <span class="letter-span" ng-repeat-start="letter in mock.pictogramas[0].letras track by $index" ng-click="letterClick($index)">{{letter}}</span>
             <br ng-repeat-end ng-if="$index == 6">
-            <span class="letter-span-hint" ng-click="hint()">?</span>
+            <span class="letter-span-hint" data-toggle="modal" data-target="#hintModal">?</span>
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="hintModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="hintModalLabel">Dica</h4>
+            </div>
+            <div class="modal-body">
+                {{mock.pictogramas[0].dica}}
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+            </div>
         </div>
     </div>
 </div>
