@@ -14775,7 +14775,7 @@ button.close {
 }
 @media (min-width: 768px) {
   .modal-dialog {
-    width: 600px;
+    width: 550px;
     margin: 30px auto;
   }
   .modal-content {
@@ -15633,6 +15633,22 @@ button.close {
   border: 1px solid grey;
   border-radius: 6px;
   box-shadow: 2px 3px 4px grey;
+}
+.modal-content .modal-header {
+  border-bottom: 0px;
+  background: #FFBC00;
+  border-radius: 5px 5px 0px 0px;
+}
+.modal-content .modal-header button {
+  float: right;
+}
+.modal-content .modal-footer {
+  border-top: 0px;
+}
+.modal-content .btn.btn-default {
+  background: #FF920A;
+  box-shadow: 1px 1px #5D5C5C;
+  border: 0px;
 }
 
 /*# sourceMappingURL=app.css.map */
