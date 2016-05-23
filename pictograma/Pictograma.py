@@ -7,6 +7,7 @@ from bson.objectid import ObjectId
 
 from app import mongo
 
+
 class Pictograma:
     def __init__(self, imagem, dica, resposta, topicos, _id=None):
 
@@ -50,12 +51,9 @@ class Pictograma:
             'letras': self.letras
         }
 
-
-
     def __str__(self):
         return "Pictograma [ \'imagem\': " + self.imagem + ", \'dica\': " + self.dica + ", \'resposta\': " + \
                self.resposta + ", \'topicos_len\': " + str(len(self.topicos)) + "]"
-
 
     def get_as_json(self):
         return json.dumps(self.pict_json)
@@ -90,8 +88,9 @@ def checar_json_pictograma_valido(picto_json):
         raise JSONInvalido("campo topicos nao foi definido no json")
     if len(picto_json['topicos']) < 1:
         raise JSONInvalido("Campo topicos foi definido, mas nao ha nenhum topico")
-        
+
     return True
+
 
 def inserir_pictograma(pict_json):
     id_insertions = []
@@ -109,8 +108,10 @@ def inserir_pictograma(pict_json):
 
     return id_insertions
 
+
 class JSONInvalido(Exception):
     def __init__(self, value):
         self.value = value
+
     def __str__(self):
         return repr(self.value)

@@ -34,5 +34,12 @@ def pictograma_por_id(_id):
         return Response(response=remove_pictograma(_id), status=200, mimetype="application/json")
 
 
+@app.route("/resp")
+def resposta_usuario():
+    assert request.args["id_pergunta"] is not None
+    assert request.args["erros"] is not None
+    # assert request.args["tempo"] is not None  # sera mesmo necessario?
+
+
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=8080)
