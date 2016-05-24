@@ -22,7 +22,7 @@
     </div>
     <div class="row letter-set">
         <div class="col-xs-12 text-center">
-            <span class="letter-span" ng-repeat-start="letter in mock.pictogramas[0].letras track by $index" ng-click="letterClick($index)">{{letter}}</span>
+            <span class="letter-span" ng-repeat-start="letter in pictogram.letras track by $index" ng-click="letterClick($index)">{{letter}}</span>
             <br ng-repeat-end ng-if="$index == 6">
             <span class="letter-span-hint" data-toggle="modal" data-target="#hintModal">?</span>
         </div>
@@ -38,7 +38,7 @@
                 <h4 class="modal-title" id="hintModalLabel">Dica</h4>
             </div>
             <div class="modal-body">
-                {{mock.pictogramas[0].dica}}
+                {{pictogram.dica}}
             </div>
             <div class="modal-footer">
             </div>

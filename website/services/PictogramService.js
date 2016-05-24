@@ -1,11 +1,11 @@
-picToSoft.factory('PictogramService', ['$http', function ($http) {
+picToSoft.factory('PictogramService', function ($http, $rootScope) {
 	'use strict';
 
 	var PictogramService = {};
 
 	PictogramService.random = function () {
-		return $http.get('https://der-werkstatt-shenrique-1.c9users.io/pictograma');
+		return $http.get($rootScope.api + '/pictograma');
 	};
 
 	return PictogramService;
-}]);
+});
