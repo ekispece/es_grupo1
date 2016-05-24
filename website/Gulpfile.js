@@ -23,9 +23,8 @@ elixir.config.publicPath = ".";
 
 elixir(function(mix){
     mix.less([
-        'bootstrap/bootstrap.less',
-        'font-awesome/font-awesome.less',
-        'var.less',
-        'pictogram.less'
+        '../bower_components/bootstrap/less/bootstrap.less',
+        '../bower_components/font-awesome/less/font-awesome.less',
+        'main.less'
     ]);
 })

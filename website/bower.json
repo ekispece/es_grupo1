@@ -9,7 +9,11 @@
   "homepage": "https://github.com/ekispece/es_grupo1",
   "private": true,
   "dependencies": {
-    "angular": "1.5.5"
+    "angular": "1.5.5",
+    "angular-route": "1.5.5",
+    "jquery": "^2.2.4",
+    "bootstrap": "^3.3.6",
+    "font-awesome": "fontawesome#^4.6.3"
   },
   "ignore": [
     "**/.*",

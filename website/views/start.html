@@ -1,0 +1,53 @@
+<div class="row start-container">
+    <div class="col-md-12">
+        <p id="main-title">PicToSoft</p>
+    </div>
+    <div class="col-md-6 button-container">
+        <button class="btn btn-lg btn-success custom-button" ng-click="startGame()"> Iniciar </button>
+    </div>
+    <div class="col-md-6 button-container">
+        <button class="btn btn-lg btn-success custom-button" data-toggle="modal" data-target="#instructionsModal"> Instruções </button>
+    </div>
+</div>
+
+<div class="modal fade" id="instructionsModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+                <h4 class="modal-title" id="instructionsModalLabel">Intruções</h4>
+            </div>
+            <div class="modal-body">
+                <h3>
+                    Bem vindo ao PicToSoft
+                </h3>
+                <p>
+                    PicToSoft é um jogo em que se deve adivinhar uma palavra relacionada a Engenharia de Software usando a combinação de imagens como dica
+                </p>
+                <!--  Imagenzinha de um pictograma -->
+                <div class="row">
+                    <div class="col-sm-8">
+                        <img src="images/instrucoes3.png" class="img-rounded" style="width: 100%" />
+                    </div>
+                    <div class="col-sm-4">
+                        <p>
+                            Clique nas letras para seleciona-las.
+                        </p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <p>
+                            Clique na interrogação (?) para receber uma dica sobre o assunto.
+                        </p>
+                    </div>
+                    <div class="col-sm-8">
+                        <img src="images/instrucoes2.png" class="img-rounded" style="width: 100%" />
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
