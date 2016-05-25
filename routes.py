@@ -1,8 +1,9 @@
 import json
+import ast
 from flask.globals import request
 from flask.wrappers import Response
 
-from pictograma.Pictograma import pictograma_aleatorio, pictograma_id, remove_pictograma, inserir_pictograma
+from pictograma.Pictograma import buscar_pictogramas, pictograma_id, remove_pictograma, inserir_pictograma, get_list_as_json
 from app import app
 
 
@@ -19,8 +20,12 @@ def pictograma():
         ids = inserir_pictograma(request.get_json(force=True))
         return Response(response=json.dumps({'inseridos': ids}), status=200, mimetype="application/json")
     elif request.method == "GET":
-        picto = pictograma_aleatorio()
-        response = Response(response=picto.get_as_json(), status=200, mimetype="application/json")
+        if len(request.args.getlist('topicos')) is 0:
+        	picto = buscar_pictogramas(None)
+        else:
+        	lista = ast.literal_eval(str(request.args.getlist('topicos')))
+        	picto = buscar_pictogramas(lista)
+        response = Response(response=get_list_as_json(picto), status=200, mimetype="application/json")
         return response
 
 
@@ -32,13 +37,6 @@ def pictograma_por_id(_id):
         return response
     elif request.method == "DELETE":
         return Response(response=remove_pictograma(_id), status=200, mimetype="application/json")
-
-
-@app.route("/resp")
-def resposta_usuario():
-    assert request.args["id_pergunta"] is not None
-    assert request.args["erros"] is not None
-    # assert request.args["tempo"] is not None  # sera mesmo necessario?
 
 
 if __name__ == '__main__':
