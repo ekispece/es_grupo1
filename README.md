@@ -142,4 +142,13 @@ Equipe top do Grupo#1
 
 * Sergio H B Marques
 * Lucas C Souza
-`TODO: incluir seu nome`
+* Inácio Cerqueira
+* Renato Oliveira
+* Eric Torres
+* Guilherme Ferreira
+* Ivan Fernandes
+* Lucas Pereira
+* Mateus Aroeira
+* Tadeu R S R Barbosa
+
+

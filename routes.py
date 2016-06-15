@@ -1,8 +1,9 @@
 import json
+import ast
 from flask.globals import request
 from flask.wrappers import Response
 
-from pictograma.Pictograma import pictograma_aleatorio, pictograma_id, remove_pictograma, inserir_pictograma
+from pictograma.Pictograma import buscar_pictogramas, pictograma_id, remove_pictograma, inserir_pictograma, get_list_as_json
 from app import app
 from crossdomain import crossdomain
 
@@ -22,8 +23,12 @@ def pictograma():
         ids = inserir_pictograma(request.get_json(force=True))
         return Response(response=json.dumps({'inseridos': ids}), status=200, mimetype="application/json")
     elif request.method == "GET":
-        picto = pictograma_aleatorio()
-        response = Response(response=picto.get_as_json(), status=200, mimetype="application/json")
+        if len(request.args.getlist('topicos')) is 0:
+        	picto = buscar_pictogramas(None)
+        else:
+        	lista = ast.literal_eval(str(request.args.getlist('topicos')))
+        	picto = buscar_pictogramas(lista)
+        response = Response(response=get_list_as_json(picto), status=200, mimetype="application/json")
         return response
 
 
