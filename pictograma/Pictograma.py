@@ -31,14 +31,14 @@ class Pictograma:
         self.topicos = topicos
         self._id = _id
 
-        self.letras = list(resposta.lower().replace(" ", ""))
+        self.letras = list(resposta.lower())
 
-        assert len(self.letras) <= 12
+        assert len(self.letras) <= 13
 
-        while len(self.letras) < 12:
+        while len(self.letras) < 13:
             self.letras.append(random.choice(string.lowercase))
 
-        assert len(self.letras) == 12
+        assert len(self.letras) == 13
         shuffle(self.letras)
 
         self.pict_json = {

@@ -20,5 +20,5 @@ config(function ($routeProvider) {
     });         
 })
 .run(function ($rootScope) {
-    $rootScope.api = 'http://127.0.0.1:8080';
+    $rootScope.api = 'https://der-werkstatt-shenrique-1.c9users.io';
 });
