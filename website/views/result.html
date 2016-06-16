@@ -1,0 +1,11 @@
+<div class="row start-container">
+    <div class="col-md-12">
+        <p id="resultado-partida"> Você acertou {{ ultimaPartida.acertos }} / {{ ultimaPartida.totalPerguntas }} questões! </p>
+    </div>
+    <div class="col-md-6 button-container">
+        <button class="btn btn-lg btn-success custom-button" ng-click="startGame()"> Iniciar </button>
+    </div>
+    <div class="col-md-6 button-container">
+        <button class="btn btn-lg btn-success custom-button" data-toggle="modal" data-target="#instructionsModal"> Instruções </button>
+    </div>
+</div>
