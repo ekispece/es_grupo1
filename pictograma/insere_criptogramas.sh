@@ -1,6 +1,3 @@
 #!/usr/bin/env bash
 curl -X POST http://0.0.0.0:8080/pictograma -d '[
-{"imagem": "images/img001.png", "dica": "Comunista", "resposta": "Kent Beck", "topicos": ["projeto", "processo", "praticas"]},
-{"imagem": "images/img002.png", "dica": "Usado para representar as coisas", "resposta": "UML", "topicos": ["processo", "entidades"]},
-{"imagem": "images/img003.png", "dica": "Livro nao utilizado", "resposta": "CMM People", "topicos": ["projeto"]}
-]'
+{"imagem": ["BOX.jpg", "BLACK.jpg"], "dica": "Tipo de teste em que vários tipos de entradas são utilizados para avaliar as saídas.", "resposta": "Caixa Preta", "topicos": ["processo", "projeto", "praticas"]}, {"imagem": ["CASCA.jpg", "TA.png"], "dica": "Constrasta com o método iterativo.", "resposta": "Cascata", "topicos": ["processo"] }, { "imagem": ["COCK.jpg","BURN.jpg"], "dica": "(Pense em inglês!) Um dos pais do movimento ágil, ajudou na criação do manifesto ágil.", "resposta": "Cockburn", "topicos": ["projeto", "processo", "praticas"] }, {"imagem": ["CLEAN.jpg", "ROOM.png"], "dica": "Método de desenvolvimento de software baseado no impedimento da criação de bugs.", "resposta": "sala limpa", "topicos": ["processo", "projeto", "praticas"] } ]'

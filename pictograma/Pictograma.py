@@ -74,7 +74,7 @@ def pictograma_aleatorio():
 
 
 def buscar_pictogramas(topicos):
-    tamanho = 10  # numero desejado de pictogramas a ser retornado pelo banco de dados
+    tamanho = 5  # numero desejado de pictogramas a ser retornado pelo banco de dados
     tamanho_lista_retornada = 0  # real tamanho da lista retornada, que serve para lidar com o caso de nao termos pictogramas suficientes para retornar 10 filtrados por topicos
     lista_pictogramas = []  # lista retornada pelo banco de dados
     lista_randomica = []  # lista que guardara a amostragem feita em lista_pictogramas
