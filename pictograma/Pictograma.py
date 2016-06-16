@@ -109,6 +109,7 @@ def remove_pictograma(_id):
 
 
 def checar_json_pictograma_valido(picto_json):
+    print picto_json
     if 'imagem' not in picto_json:
         raise JSONInvalido("campo imagem nao foi definido no json")
     if 'dica' not in picto_json:
