@@ -17,12 +17,16 @@
     </div>
     <div class="row answer">
         <div class="col-xs-12 text-center">
-            <span class="answer-box" ng-click="answerBoxClick($index)" ng-class="(letter == '')?'empty': ''" ng-repeat="letter in answerLetters track by $index">{{letter == ''?' ': letter}}</span>
+            <span class="answer-box" ng-click="clickLetraResposta($index)" ng-class="(letra == '') ? 'empty': ''" ng-repeat="letra in letrasDaResposta track by $index">
+                {{letra == ' ' ? '&nbsp;': letra}}
+            </span>
         </div>
     </div>
     <div class="row letter-set">
         <div class="col-xs-12 text-center">
-            <span class="letter-span" ng-repeat-start="letter in pictogram.letras track by $index" ng-click="letterClick($index)">{{letter}}</span>
+            <span class="letter-span" ng-repeat-start="letra in pictograma.letras track by $index" ng-click="clickLetra($index)">
+                {{letra == ' ' ? '&nbsp;': letra}}
+            </span>
             <br ng-repeat-end ng-if="$index == 6">
             <span class="letter-span-hint" data-toggle="modal" data-target="#hintModal">?</span>
         </div>
@@ -38,7 +42,7 @@
                 <h4 class="modal-title" id="hintModalLabel">Dica</h4>
             </div>
             <div class="modal-body">
-                {{pictogram.dica}}
+                {{pictograma.dica}}
             </div>
             <div class="modal-footer">
             </div>

@@ -67,3 +67,6 @@ target/
 #Frontend dependency folders
 node_modules
 bower_components
+
+#vscode
+.vscode/
