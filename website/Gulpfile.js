@@ -25,6 +25,6 @@ elixir(function(mix){
     mix.less([
         '../bower_components/bootstrap/less/bootstrap.less',
         '../bower_components/font-awesome/less/font-awesome.less',
-        'main.less'
+        'less/main.less'
     ]);
 })
