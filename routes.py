@@ -62,11 +62,9 @@ def finaliza_jogo_e_mostra_metricas():
         for resposta in partida["respostas"]:
             if resposta["acertou"]:
                 respostas_corretas += 1
-        return_json["partidas"].append({"x": i, "y": respostas_corretas})
+        return_json["partidas"].append({"x": partidas.count() - i, "y": respostas_corretas})
 
-    return_json["topicos"] = {"projeto": {}, "processo": {}, "praticas": {}, "entidades": {}}
-    for key in return_json["topicos"]:
-        print key
+    return_json["topicos"] = metricas.pegar_metricas_ultimos_topicos()
     return Response(response=json_util.dumps(return_json))
 
 
