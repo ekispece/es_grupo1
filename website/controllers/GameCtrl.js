@@ -1,4 +1,4 @@
-picToSoft.controller('GameCtrl', function($scope, $http, $location, PictogramService){
+picToSoft.controller('GameCtrl', function($scope, $http, $location, PictogramService, $rootScope){
     var pictogramas = [];
     var indicePictogramas = 0;
 
@@ -27,7 +27,7 @@ picToSoft.controller('GameCtrl', function($scope, $http, $location, PictogramSer
                 $rootScope.metricas = {};
 
                 $rootScope.metricas.historico = response.data;
-                $rootScope.metricas.ultimaPartida = resumo;
+                $rootScope.metricas.ultimaPartida = resumo.respostas;
 
                 $location.path('/result');
             });
