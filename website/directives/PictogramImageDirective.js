@@ -9,6 +9,8 @@ picToSoft.directive('pictogramImage', function () {
         link: function ($scope, $elem, attrs) {
             var $img = $('div');
 
+            $img.css('background-')
+
             $scope.source = 'images/' + $scope.source;
         }
     };

@@ -1,4 +1,4 @@
-picToSoft.controller('ResultCtrl', function ($rootScope) {
+picToSoft.controller('ResultCtrl', function ($scope, $rootScope, $location) {
     $scope.metricas = $rootScope.metricas;    
 
     var obterTotalAcertos = function () {
@@ -12,8 +12,16 @@ picToSoft.controller('ResultCtrl', function ($rootScope) {
         return count;
     };
 
-    $scope.ultimaPartida = {
-        acertos: obterTotalAcertos(),
-        totalPerguntas: $rootScope.metricas.ultimaPartida.length
-    };    
+    $scope.ultimaPartida = {};
+    $scope.ultimaPartida.acertos = obterTotalAcertos();
+    $scope.ultimaPartida.totalPerguntas = $rootScope.metricas.ultimaPartida.length;    
+
+    $scope.iniciarNovoJogo = function () {
+        $location.path('/game');
+    }    
+
+    // FIX FOR BOOTSTRAP NAV
+    $('.nav-tabs li a').click(function (e) {
+        e.preventDefault();        
+    });
 });
