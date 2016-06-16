@@ -1,6 +1,6 @@
 picToSoft.controller('GameCtrl', function($scope, $http, $location, PictogramService){
     var pictogramas = [];
-    var indicePictogramas = 0;    
+    var indicePictogramas = 0;
 
     $scope.letrasDaResposta = [];
 
@@ -18,7 +18,7 @@ picToSoft.controller('GameCtrl', function($scope, $http, $location, PictogramSer
 
         return resumo;
     }
-    
+
     var verificarFimDoJogo = function () {
         if(indicePictogramas == pictogramas.length) {
             var resumo = montarObjetoResumoJogo();
@@ -28,33 +28,33 @@ picToSoft.controller('GameCtrl', function($scope, $http, $location, PictogramSer
 
                 $rootScope.metricas.historico = response.data;
                 $rootScope.metricas.ultimaPartida = resumo;
-                
+
                 $location.path('/result');
-            });            
+            });
         } else {
             inicializarJogo();
         }
     };
-    
+
     var verificarRespostaCerta = function () {
         var resposta = $scope.letrasDaResposta.join('');
-        
-        if(resposta.length == $scope.pictograma.resposta.length) {        
-            if(resposta.toLowerCase() === $scope.pictograma.resposta.toLowerCase()) {                
-                alert('resposta certa!');                
-                pictogramas[indicePictogramas].acertou = true;                
-            } else {                
+
+        if(resposta.length == $scope.pictograma.resposta.length) {
+            if(resposta.toLowerCase() === $scope.pictograma.resposta.toLowerCase()) {
+                alert('resposta certa!');
+                pictogramas[indicePictogramas].acertou = true;
+            } else {
                 alert('resposta errada...');
-                pictogramas[indicePictogramas].acertou = false;                
+                pictogramas[indicePictogramas].acertou = false;
             }
 
             indicePictogramas++;
-            
-            verificarFimDoJogo();                                   
+
+            verificarFimDoJogo();
         }
     };
 
-    var inicializarLetrasDaResposta = function (resposta) {        
+    var inicializarLetrasDaResposta = function (resposta) {
         $scope.letrasDaResposta = [];
 
         for(var x = 0; x < $scope.pictograma.resposta.length; x++) {
@@ -63,11 +63,11 @@ picToSoft.controller('GameCtrl', function($scope, $http, $location, PictogramSer
     };
 
     var inicializarJogo = function () {
-        $scope.pictograma = pictogramas[indicePictogramas].data;        
+        $scope.pictograma = pictogramas[indicePictogramas].data;
 
         inicializarLetrasDaResposta();
     };
-                                         
+
     $scope.clickLetra = function(index){
         for(var i = 0; i < $scope.letrasDaResposta.length; i++){
             if($scope.letrasDaResposta[i] == ''){
@@ -78,26 +78,26 @@ picToSoft.controller('GameCtrl', function($scope, $http, $location, PictogramSer
 
         $scope.pictograma.letras.splice(index, 1);
 
-        verificarRespostaCerta();        
+        verificarRespostaCerta();
     };
 
     $scope.clickLetraResposta = function(index){
         if($scope.letrasDaResposta[index] !== '')
             $scope.pictograma.letras.push($scope.letrasDaResposta[index]);
 
-        $scope.letrasDaResposta[index] = '';        
+        $scope.letrasDaResposta[index] = '';
     };
 
     PictogramService.iniciarPartida().then(function (response) {
        var respostaApi = response.data;
 
        for(var index = 0; index < respostaApi.length; index++) {
-           pictogramas.push({                              
-               data: respostaApi[index],               
+           pictogramas.push({
+               data: respostaApi[index],
                acertou: false
            });
-       }      
+       }
 
-       inicializarJogo();         
-    });   
+       inicializarJogo();
+    });
 });

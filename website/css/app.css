@@ -15548,15 +15548,6 @@ button.close {
   border-top-right-radius: 5px;
   background-color: #5bc0de;
 }
-.pictogram .plus-div {
-  height: 287px;
-  /*Marretando a altura por hora. Height 100% não funciona sabe-se la por que*/
-  display: table;
-}
-.pictogram .plus-div .plus-sign {
-  vertical-align: middle;
-  display: table-cell;
-}
 .answer {
   background: #FFBC00;
   height: 38px;
@@ -15602,10 +15593,14 @@ button.close {
   background-color: #E91E63;
 }
 .plus-div {
-  text-align: center;
+  display: -webkit-box;
+  display: flex;
 }
-.img-pictogram {
-  width: 100%;
+.plus-div .plus-sign {
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-left: 20px;
+  margin-right: 20px;
 }
 #main-title {
   font-size: 132px;
@@ -15625,6 +15620,22 @@ button.close {
   border: 1px solid grey;
   border-radius: 6px;
   box-shadow: 2px 3px 4px grey;
+}
+.pictogram-images {
+  display: -webkit-box;
+  display: flex;
+  flex-flow: row wrap;
+  -webkit-box-pack: center;
+  justify-content: center;
+}
+.pictogram-images pictogram-image {
+  flex-shrink: 1;
+  margin-bottom: 20px;
+}
+pictogram-image {
+  display: -webkit-box;
+  display: flex;
+  flex-flow: row nowrap;
 }
 #resultado-partida {
   text-align: center;

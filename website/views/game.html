@@ -3,8 +3,8 @@
         <h1>PicToSoft</h1>
     </div>
 </div>
-<div class="col-md-8 col-md-offset-2 main-game">
-    <div class="row pictogram">
+<div class="col-md-12 main-game">
+    <!--<div class="row pictogram">        
         <div class="col-xs-5">
             <img src="http://lorempixel.com/240/240/cats" alt="Gato" class="img-rounded img-pictogram"/>
         </div>
@@ -13,6 +13,11 @@
         </div>
         <div class="col-xs-5">
             <img src="http://lorempixel.com/240/240/city" alt="Cidade" class="img-rounded img-pictogram"/>
+        </div>
+    </div>-->
+    <div class="row">
+        <div class="pictogram-images">
+            <pictogram-image source="source" last="$last" ng-repeat="source in pictograma.imagem" />
         </div>
     </div>
     <div class="row answer">

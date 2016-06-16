@@ -11,15 +11,6 @@
     border-top-right-radius: 5px;
     background-color: @bg-pictogram;
 
-
-    .plus-div{
-        height: 287px; /*Marretando a altura por hora. Height 100% não funciona sabe-se la por que*/
-        display: table;
-        .plus-sign{
-            vertical-align: middle;
-            display: table-cell;
-        }
-    }
 }
 
 .answer{
@@ -63,10 +54,14 @@
 }
 
 .plus-div{
-    text-align: center;
-}
-.img-pictogram{
-    width: 100%;
+    display: flex;
+
+    .plus-sign {
+        margin-top: auto;
+        margin-bottom: auto;
+        margin-left: 20px;
+        margin-right: 20px;
+    }
 }
 
 // Página inicial
@@ -92,6 +87,24 @@
     border: 1px solid grey;
     border-radius: 6px;
     box-shadow: 2px 3px 4px grey;
+}
+
+// Pagina do jogo
+
+.pictogram-images {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+
+    pictogram-image {
+        flex-shrink: 1;
+        margin-bottom: 20px;
+    }
+}
+
+pictogram-image {
+    display: flex;
+    flex-flow: row nowrap;    
 }
 
 // Pagina de resultados
