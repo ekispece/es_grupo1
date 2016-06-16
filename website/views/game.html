@@ -3,8 +3,8 @@
         <h1>PicToSoft</h1>
     </div>
 </div>
-<div class="col-md-8 col-md-offset-2 main-game">
-    <div class="row pictogram">
+<div class="col-md-12 main-game">
+    <!--<div class="row pictogram">        
         <div class="col-xs-5">
             <img src="http://lorempixel.com/240/240/cats" alt="Gato" class="img-rounded img-pictogram"/>
         </div>
@@ -14,15 +14,24 @@
         <div class="col-xs-5">
             <img src="http://lorempixel.com/240/240/city" alt="Cidade" class="img-rounded img-pictogram"/>
         </div>
+    </div>-->
+    <div class="row">
+        <div class="pictogram-images">
+            <pictogram-image source="source" last="$last" ng-repeat="source in pictograma.imagem" />
+        </div>
     </div>
     <div class="row answer">
         <div class="col-xs-12 text-center">
-            <span class="answer-box" ng-click="answerBoxClick($index)" ng-class="(letter == '')?'empty': ''" ng-repeat="letter in answerLetters track by $index">{{letter == ''?' ': letter}}</span>
+            <span class="answer-box" ng-click="clickLetraResposta($index)" ng-class="(letra == '') ? 'empty': ''" ng-repeat="letra in letrasDaResposta track by $index">
+                {{letra == ' ' ? '&nbsp;': letra}}
+            </span>
         </div>
     </div>
     <div class="row letter-set">
         <div class="col-xs-12 text-center">
-            <span class="letter-span" ng-repeat-start="letter in pictogram.letras track by $index" ng-click="letterClick($index)">{{letter}}</span>
+            <span class="letter-span" ng-repeat-start="letra in pictograma.letras track by $index" ng-click="clickLetra($index)">
+                {{letra == ' ' ? '&nbsp;': letra}}
+            </span>
             <br ng-repeat-end ng-if="$index == 6">
             <span class="letter-span-hint" data-toggle="modal" data-target="#hintModal">?</span>
         </div>
@@ -38,7 +47,7 @@
                 <h4 class="modal-title" id="hintModalLabel">Dica</h4>
             </div>
             <div class="modal-body">
-                {{pictogram.dica}}
+                {{pictograma.dica}}
             </div>
             <div class="modal-footer">
             </div>

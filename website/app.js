@@ -18,6 +18,11 @@ config(function ($routeProvider) {
         templateUrl: 'views/game.html',
         controller: 'GameCtrl'
     });         
+
+    $routeProvider.when('/result', {
+        templateUrl: 'views/result.html',
+        controller: 'ResultCtrl'
+    });         
 })
 .run(function ($rootScope) {
     $rootScope.api = 'https://der-werkstatt-shenrique-1.c9users.io';
